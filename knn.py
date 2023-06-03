@@ -6,7 +6,7 @@ import numpy as np
 train_set = []
 
 # hyperparameters
-k = 8
+k = 7
 
 
 def EuclideanDistance(point):
@@ -48,10 +48,19 @@ if __name__ == "__main__":
     test_set = data[math.floor(0.9 * len(data)):]
 
     true_predictions = 0
-    for record in cross_validation_set:
+    # cross validation testing
+    # for record in cross_validation_set:
+    #     label = record[0]
+    #     predicted_label = Predict(record)
+    #     if label == predicted_label:
+    #         true_predictions += 1
+    # accuracy = (true_predictions / len(cross_validation_set)) * 100
+    # print(accuracy)
+
+    for record in test_set:
         label = record[0]
         predicted_label = Predict(record)
         if label == predicted_label:
             true_predictions += 1
-    accuracy = (true_predictions / len(cross_validation_set)) * 100
+    accuracy = (true_predictions / len(test_set)) * 100
     print(accuracy)
