@@ -1,3 +1,4 @@
+import copy
 import math
 import pickle
 
@@ -10,7 +11,10 @@ k = 7
 
 
 def EuclideanDistance(point):
-    distance = np.power(point - train_set, 2)
+    features = np.delete(train_set, 0, axis=1)
+    point_copy = copy.deepcopy(point)
+    point_copy = np.delete(point_copy, 0, axis=0)
+    distance = np.power(point_copy - features, 2)
     distance = np.sum(distance, axis=1, keepdims=False)
     distance = np.power(distance, 0.5)
     return distance
