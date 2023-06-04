@@ -25,8 +25,15 @@ def PrepareFeatures():
         encoded_data = np.append(encoded_data, encoded_vector, axis=1)
     encoded_data = np.delete(encoded_data, [0, 1], axis=1)
 
-    with open("encoded_data.pkl", "wb") as file:
+    with open("features.pkl", "wb") as file:
         pickle.dump(encoded_data, file)
+        file.close()
+
+    poisonous = np.array(df["poisonous"])
+    labels = (poisonous == 'e').astype(int)
+
+    with open("labels.pkl", "wb") as file:
+        pickle.dump(labels, file)
         file.close()
 
 
