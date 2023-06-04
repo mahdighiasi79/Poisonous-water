@@ -9,6 +9,7 @@ Before one hot encoding, we had 22 features but after performing one hot encodin
 
 The model we used for this classification tgask is K Nearest Neighbors (KNN). 
 The euclidean distance is used as the distance metric between points.
+Based on the evaluation process, 3 is the best value for K hyperparameter in the algorithm.
 
 10-fold-cross-validation testing has been executed for evaluating our model's performance.
 Based on our evaluation, KNN gives an averege accuracy of about 99.74%.
